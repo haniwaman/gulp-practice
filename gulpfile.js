@@ -3,4 +3,5 @@ function defaultTask(cb) {
   cb();
 }
 
-exports.default = defaultTask
+exports.taskName = defaultTask // npx taskNameで実行（任意の名前を付けられる）
+exports.default = defaultTask // npx gulpで実行
