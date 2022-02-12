@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/haniwaman/gulp-practice/issues"
   },
-  "homepage": "https://github.com/haniwaman/gulp-practice#readme"
+  "homepage": "https://github.com/haniwaman/gulp-practice#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
