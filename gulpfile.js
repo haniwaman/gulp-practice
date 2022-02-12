@@ -1,12 +1,10 @@
-// 1、タスクの作成
-function defaultTask(cb) {
-  // タスクの内容
-  console.log('create gulpfile.js');
+const gulp = require('gulp'); // gulpの関数を使えるように
 
-  // 明示的な終了（関数名はなんでもOK）
-  cb();
+// 1、タスクの作成
+function copyFile() {
+  return gulp.src('./src/demo.js') // 元のファイル
+    .pipe(gulp.dest('./public/')) // 出力先のファイル
 }
 
 // 2、タスクの登録
-exports.taskName = defaultTask // 3、タスクの実行：npx gulp taskNameで実行可能（任意の名前を付けられる）
-exports.default = defaultTask // 3、タスクの実行：npx gulpで実行可能
+exports.copyFile = copyFile // 3、タスクの実行
