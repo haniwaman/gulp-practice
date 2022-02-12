@@ -6,5 +6,11 @@ function copyFile() {
     .pipe(gulp.dest('./public/')) // 出力先のファイル
 }
 
+// 1、タスクの作成
+function fileWatch() {
+  gulp.watch('src/demo.js', copyFile); // ファイルの監視
+};
+
 // 2、タスクの登録
 exports.copyFile = copyFile // 3、タスクの実行
+exports.fileWatch = fileWatch // 3、タスクの実行
