@@ -1,5 +1,12 @@
 const gulp = require('gulp'); // gulpの関数を使えるように
+const sass = require("gulp-sass")(require("sass"));
 const browserSync = require("browser-sync"); //（https://browsersync.io/docs/gulp）
+
+function compileSass() {
+	return gulp.src("./src/assets/sass/**/*.scss")
+	.pipe(sass())
+	.pipe(gulp.dest("./public/assets/css/"))
+}
 
 // ブラウザの立ち上げ
 function browserInit(done) {
@@ -19,8 +26,8 @@ function browserReload(done) {
 
 // ファイル監視
 function watch() {
-  // sassファイルが更新されたらブラウザをリロード
-	gulp.watch("./src/assets/sass/**/*.scss", browserReload);
+  // sassファイルが更新されたらSassのコンパイル → ブラウザをリロードの順番で実行
+	gulp.watch("./src/assets/sass/**/*.scss", gulp.series(compileSass, browserReload));
 }
 
 // 2、タスクの登録
