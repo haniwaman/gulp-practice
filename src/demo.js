@@ -1,1 +1,0 @@
-console.log('Gulpでファイルの変換（出力）');
